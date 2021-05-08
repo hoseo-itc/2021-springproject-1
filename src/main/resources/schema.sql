@@ -14,11 +14,11 @@ create table Member(
 create table Post(
 	no number primary key,
 	publisher_no number not null,
-	upload_date date not null,
-	change_date date not null,
+	upload_date date not null default now(),
+	change_date date,
 	title varchar2(30) not null,
-	text LONG ,
-	visible number not null
+	text text,
+	visible number not null default 1
 );
 
 create table Files(

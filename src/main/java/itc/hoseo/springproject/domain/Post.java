@@ -14,7 +14,13 @@ public class Post {
 	private Integer visible;
 	
 	public Post() {}
-	
+
+	public Post(Integer publisher_no,String title,String text){
+		this.publisher_no=publisher_no;
+		this.title=title;
+		this.text=text;
+	}
+
 	public Post(Integer no, Integer publisher_no, String upload_date, String change_date, String title, String text,
 			Integer visible) {
 		this.no = no;
