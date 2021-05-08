@@ -9,4 +9,5 @@ public interface PostRepository {
     public Post save(Member member,Post post);
     public List<Post> findAll();
     public Post findByPno(Member member);
+    public Post findByNo(int no);
 }

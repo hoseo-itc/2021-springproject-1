@@ -8,15 +8,17 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@Rollback(value = false)
 public class PostRepositoryTest {
 
     @Autowired
     MemberRepository memrepo;
-
     @Autowired
     PostRepository porepo;
 
@@ -34,13 +36,13 @@ public class PostRepositoryTest {
         String t = "제목";
         String s = "내용입니다!!!";
         Post po = new Post(mem.getNo(),t,s);
-        porepo.save(mem,po);
+        Post savedPost = porepo.save(mem,po);
 
-        //assertEquals();
+        //assertEquals(savedPost.getTitle(),t);
     }
 
-    @Test
-    @Order(3)
+    //@Test
+    //@Order(3)
     public void testId(){
         //assertEquals("yy",porepo.findByPno(1));
     }

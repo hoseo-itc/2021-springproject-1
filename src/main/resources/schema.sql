@@ -12,7 +12,7 @@ create table Member(
 );
 
 create table Post(
-	no number primary key,
+	no int AUTO_INCREMENT,
 	publisher_no number not null,
 	upload_date date not null default now(),
 	change_date date,
@@ -20,6 +20,8 @@ create table Post(
 	text text,
 	visible number not null default 1
 );
+
+alter table Post add primary key(no);
 
 create table Files(
 	no number primary key,
