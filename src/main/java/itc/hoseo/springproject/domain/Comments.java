@@ -23,7 +23,4 @@ public class Comments {
 		this.update_date = update_date;
 		this.change_date = change_date;
 	}
-	
-	
-	
 }

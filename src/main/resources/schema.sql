@@ -1,12 +1,12 @@
 create table Member(
-	no NUMBER primary key,
+	no NUMBER AUTO_INCREMENT primary key,
 	id varchar2(20) not null unique,
 	name varchar2(20) not null,
 	password varchar2(20) not null,
 	
-	user_mode NUMBER not null,
+	user_mode NUMBER not null default 10,
 	
-	join_date DATE,
+	join_date DATE default now(),
 	last_login_date DATE,
 	last_password_date DATE
 );
@@ -25,7 +25,6 @@ create table Files(
 	no number primary key,
 	publisher_no number not null,
 	post_no number not null,
-	
 	origin_name varchar2(255) not null,
 	encode_name varchar2(255) not null,
 	

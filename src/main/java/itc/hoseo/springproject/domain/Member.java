@@ -2,6 +2,8 @@ package itc.hoseo.springproject.domain;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class Member {
 	
@@ -10,14 +12,26 @@ public class Member {
 	private String name;
 	private String password;
 	private Integer user_mode;
-	private String join_date;
-	private String last_login_date;
-	private String last_password_date;
+	private Date join_date;
+	private Date last_login_date;
+	private Date last_password_date;
 	
 	public Member() {}
+
+	public Member(String id, String password){
+		this.id = id;
+		this.password = password;
+	};
+
+	public Member(String id, String password, String name){
+		this.id = id;
+		this.password = password;
+		this.name = name;
+	};
+
 	
-	public Member(Integer no, String id, String name, String password, Integer user_mode, String join_date,
-			String last_login_date, String last_password_date) {
+	public Member(Integer no, String id, String name, String password, Integer user_mode, Date join_date,
+				  Date last_login_date, Date last_password_date) {
 		this.no = no;
 		this.id = id;
 		this.name = name;
