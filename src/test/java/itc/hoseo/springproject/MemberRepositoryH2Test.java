@@ -17,6 +17,19 @@ public class MemberRepositoryH2Test {
     @Test
     @Order(1)
     public void testSave(){
-        assertEquals("yy",repo.save(new Member("test","1234","yy")).getName());
+        assertEquals("yy",
+                repo.save(new Member("test","1234","yy")).getName());
+    }
+
+    @Test
+    @Order(2)
+    public void test() {
+        assertEquals(1,repo.findAll().size());
+    }
+
+    @Test
+    @Order(3)
+    public void testId(){
+        assertEquals("yy",repo.findById("test").getName());
     }
 }
