@@ -1,6 +1,5 @@
 package itc.hoseo.springproject.controller;
 
-import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,22 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
-public class MemberController {
+public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/")
-    public String rootPage(){
-        return "index";
-    }
-    @RequestMapping(value = "/main")
-    public String main(){
-        return "main";
+    @GetMapping("/login")
+    public String loginForm(){
+        return "login/loginForm";
     }
 
-	
+    @PostMapping("/login")
+    public String loginAction(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletRequest session){
+        loginService.login(id,password,session);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/logout")
+    public String loginAction(HttpServletRequest session){
+        loginService.logout(session);
+        return "redirect:/";
+    }
 }
