@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>80일간의 여행 : 글 리스트</title>
-</head>
+<html lang="ko"
+      xmlns:th="https://thymeleaf.org"
+      th:replace="~{fragments/layout :: rslt(~{::body},'글 리스트')}">>
 <body>
 <div class>
     <form action="/post/list" method="post">
@@ -15,15 +13,10 @@
                     <div style="display:table-cell">제목</div>
                     <div style="display:table-cell">작성일</div>
                 </div>
-                <div style="display:table-row">
-                    <div style="display:table-cell">22222</div>
-                    <div style="display:table-cell">제2222목</div>
-                    <div style="display:table-cell">작성2222일</div>
-                </div>
-                <div style="display:table-row">
-                    <div style="display:table-cell">333</div>
-                    <div style="display:table-cell">333</div>
-                    <div style="display:table-cell">333</div>
+                <div style="display:table-row" th:each="post : ${postList}">
+                    <div style="display:table-cell" th:text="${post.publisher_no}">22222</div>
+                    <div style="display:table-cell" th:text="${post.title}">제2222목</div>
+                    <div style="display:table-cell" th:text="${post.upload_date}">작성2222일</div>
                 </div>
             </div>
         </div>
