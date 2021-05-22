@@ -26,8 +26,7 @@ public class Member {
 	public Member(String id, String password, String name){
 		this.id = id;
 		this.password = password;
-		this.name = name;
-	};
+		this.name = name;	};
 
 	
 	public Member(Integer no, String id, String name, String password, Integer user_mode, Date join_date,
