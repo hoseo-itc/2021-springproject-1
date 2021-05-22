@@ -11,11 +11,12 @@ public class SignupService {
     private MemberRepository memberRepository;
 
     public boolean signup(String id, String password, String name){
+
         Member findMember = memberRepository.findById(id);
-        if(findMember!=null){
-            return false;
+        if(findMember==null){
+            memberRepository.save(new Member(id, password, name));
+            return true;
         }
-        memberRepository.save(new Member(id,password,name));
-        return true;
+        return false;
     }
 }

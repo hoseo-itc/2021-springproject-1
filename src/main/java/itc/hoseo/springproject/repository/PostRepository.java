@@ -10,4 +10,5 @@ public interface PostRepository {
     public List<Post> findAll();
     public Post findByPno(Member member);
     public Post findByNo(int no);
+    public int countByNo(int no);
 }

@@ -52,8 +52,17 @@ public class H2PostRepository implements PostRepository {
 
     @Override
     public Post findByNo(int no) {
+        if(countByNo(no)==0){
+            return null;
+        }
         return template.queryForObject("select * from post where no = ?",
                 new BeanPropertyRowMapper<Post>(Post.class), no);
+    }
+
+    @Override
+    public int countByNo(int no) {
+        return template.queryForObject("select count(*) from member where id = ?",
+                Integer.class, no);
     }
 
     @Override
