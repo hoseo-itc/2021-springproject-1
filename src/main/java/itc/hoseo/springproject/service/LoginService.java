@@ -16,7 +16,6 @@ public class LoginService {
 
     public boolean login(String id, String password, HttpServletRequest request){
         Member findMember = memberRepository.findById(id);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
         if(findMember == null) {
             throw new IllegalArgumentException("사용자가 존재하지 않습니다.");
         }

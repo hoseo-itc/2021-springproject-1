@@ -1,6 +1,6 @@
 package itc.hoseo.springproject.controller;
 
-import itc.hoseo.springproject.service.LoginService;
+import itc.hoseo.springproject.service.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class SignupController {
 
     @Autowired
-    private SignupController signupController;
+    private SignupService signupService;
 
     @GetMapping("/login/signup")
     public String signUp(){
@@ -21,7 +21,13 @@ public class SignupController {
     }
 
     @PostMapping("/login/signup")
-    public String signupAction(){
-        return "redirect:/";
+    public String signupAction(@RequestParam("id") String id, @RequestParam("password") String password, @RequestParam("name") String name, HttpServletRequest session){
+        boolean flag = signupService.signup(id,password,name);
+        if(flag){
+            return "redirect:/";
+        }
+        else{
+            return "redirect:/login/signup";
+        }
     }
 }

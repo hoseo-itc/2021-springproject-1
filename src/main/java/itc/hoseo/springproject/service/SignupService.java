@@ -5,15 +5,17 @@ import itc.hoseo.springproject.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 @Service
 public class SignupService {
     @Autowired
     private MemberRepository memberRepository;
 
-    public boolean signup(){
-        return false;
+    public boolean signup(String id, String password, String name){
+        Member findMember = memberRepository.findById(id);
+        if(findMember!=null){
+            return false;
+        }
+        memberRepository.save(new Member(id,password,name));
+        return true;
     }
 }
