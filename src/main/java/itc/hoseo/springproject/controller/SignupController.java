@@ -17,7 +17,7 @@ public class SignupController {
 
     @GetMapping("/login/signup")
     public String signUp(){
-        return "signUp";
+        return "login/signUp";
     }
 
     @PostMapping("/login/signup")
