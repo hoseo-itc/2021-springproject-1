@@ -25,8 +25,17 @@ public class H2MemberRepository implements MemberRepository {
 
     @Override
     public Member findById(String id) {
+        if(countById(id)==0){
+            return null;
+        }
         return template.queryForObject("select * from member where id = ?",
                 new BeanPropertyRowMapper<Member>(Member.class), id);
+    }
+
+    @Override
+    public int countById(String id) {
+        return template.queryForObject("select count(*) from member where id = ?",
+                Integer.class, id);
     }
 
     // 관리자 함수

@@ -21,7 +21,7 @@ public class SignupController {
     }
 
     @PostMapping("/login/signup")
-    public String signupAction(@RequestParam("id") String id, @RequestParam("password") String password, @RequestParam("name") String name, HttpServletRequest session){
+    public String signupAction(@RequestParam("id") String id, @RequestParam("password") String password, @RequestParam("name") String name){
         boolean flag = signupService.signup(id,password,name);
         if(flag){
             return "redirect:/";
