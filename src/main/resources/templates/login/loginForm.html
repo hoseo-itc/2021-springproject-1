@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>80일간의 여행 : 로그인페이지</title>
-</head>
+<html  lang="ko"
+       xmlns:th="https://thymeleaf.org"
+       th:replace="~{fragments/layout :: rslt(~{::body},'로그인')}">
 <body>
-<div class>
-    <form action="/login" method="post">
-        <div>
-            <div>로그인</div>
-            <div>즐거운 여행을 떠나기 위한 준비</div>
-            <div>아이디 : <input name="id" type="text"></div>
-            <div>페스워드 : <input name="password" type="password"></div>
-        </div>
-        <div>
-            <input type="submit">
-            <input type="button" value="회원가입" onclick="location.href='/login/signup'">
-        </div>
-    </form>
-    <a href="https://kauth.kakao.com/oauth/authorize?client_id=25c3e04cd386ae486d59b8bdbf9a69aa&redirect_uri=http://localhost:8081/auth&response_type=code&scope=account_email,profile">
-        <img src="/images/kakao_login_medium_narrow.png"></a>
-</div>
-
+    <div class>
+        <form action="/login" method="post">
+            <div>
+                <div>로그인</div>
+                <div>즐거운 여행을 떠나기 위한 준비</div>
+                <div>아이디 : <input name="id" type="text"></div>
+                <div>페스워드 : <input name="password" type="password"></div>
+            </div>
+            <div>
+                <input type="submit">
+                <input type="button" value="회원가입" onclick="location.href='/login/signup'">
+            </div>
+        </form>
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=25c3e04cd386ae486d59b8bdbf9a69aa&redirect_uri=http://localhost:8081/auth&response_type=code&scope=account_email,profile">
+            <img src="/images/kakao_login_medium_narrow.png"></a>
+    </div>
 </body>
 </html>
