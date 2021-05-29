@@ -16,7 +16,7 @@
                 <div style="display:table-row" th:each="post : ${postList}">
                     <div style="display:table-cell" th:text="${post.publisher_no}">22222</div>
                     <div style="display:table-cell" >
-                        <a href="/post/detail?no=${post.no}" th:text="${post.title}">제2222목</a>
+                        <a th:href="|/post/detail?no=${post.no}|" th:text="${post.title}">제2222목</a>
                     </div>
                     <div style="display:table-cell" th:text="${post.upload_date}">작성2222일</div>
                 </div>

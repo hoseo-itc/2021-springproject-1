@@ -26,7 +26,8 @@ public class PostController {
     }
 
     @GetMapping("/post/detail")
-    public String postDetail(@RequestParam("no") int no, Model model){
+    public String postDetail(@RequestParam("no") String s_no, Model model){
+        int no = Integer.parseInt(s_no);
         Post post = postService.postDetail(no);
         model.addAttribute("post",post);
         return "post/postDetail";

@@ -61,7 +61,7 @@ public class H2PostRepository implements PostRepository {
 
     @Override
     public int countByNo(int no) {
-        return template.queryForObject("select count(*) from member where id = ?",
+        return template.queryForObject("select count(*) from post where no = ?",
                 Integer.class, no);
     }
 

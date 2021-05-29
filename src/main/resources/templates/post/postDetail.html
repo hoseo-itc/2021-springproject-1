@@ -4,16 +4,14 @@
       th:replace="~{fragments/layout :: rslt(~{::body},'글 상세')}">>
 <body>
 <div class>
-  <form action="/post/list" method="post">
     <div>
       <div>글 상세</div>
-        <div>no</div>
-        <div>publisher_no</div>
-        <div>upload_date</div>
-        <div>title</div>
-        <div>text</div>
+        <div th:text="${post.no}">no</div>
+        <div th:text="${post.publisher_no}">publisher_no</div>
+        <div th:text="${post.upload_date}">upload_date</div>
+        <div th:text="${post.title}">title</div>
+        <div th:text="${post.text}">text</div>
     </div>
-  </form>
 </div>
 
 </body>
