@@ -57,6 +57,6 @@ public class PostController {
         post.setPublisher_no(m.getNo());
         post.setPublisher(m);
         postService.postUpload(post);
-        return "redirect:/post/list";
+        return "redirect:/";
     }
 }
