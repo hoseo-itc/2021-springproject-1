@@ -1,6 +1,8 @@
 package itc.hoseo.springproject.service;
 
+import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.domain.Post;
+import itc.hoseo.springproject.repository.MemberRepository;
 import itc.hoseo.springproject.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private MemberRepository memberRepository;
+
     public List<Post> postList(){
         return postRepository.findAll();
     }
@@ -20,5 +25,9 @@ public class PostService {
     public Post postDetail(int no){
         return postRepository.findByNo(no);
     }
+
+   /*public Post postUpload(Integer publisher_no, String title, String text){
+       return postRepository.save();
+   }*/
 
 }

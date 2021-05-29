@@ -33,8 +33,18 @@ public class PostController {
         return "post/postDetail";
     }
 
+    @GetMapping("/post/upload")
+    public String postUpload(){
+        return "post/postUpload";
+    }
+
     @PostMapping("/post/list")
     public String postListAction(){
+        return "redirect:/";
+    }
+
+    @PostMapping("/post/upload")
+    public String Upload(){
         return "redirect:/";
     }
 }
