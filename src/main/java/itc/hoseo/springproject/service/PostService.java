@@ -18,16 +18,16 @@ public class PostService {
     @Autowired
     private MemberRepository memberRepository;
 
-    public List<Post> postList(){
+    public List<Post> postList() {
         return postRepository.findAll();
     }
 
-    public Post postDetail(int no){
+    public Post postDetail(int no) {
         return postRepository.findByNo(no);
     }
 
-   /*public Post postUpload(Integer publisher_no, String title, String text){
-       return postRepository.save();
-   }*/
+    public Post postUpload(Post post) {
+        return postRepository.save(post.getPublisher(), post);
+    }
 
 }
