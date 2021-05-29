@@ -17,4 +17,8 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public Post postDetail(int no){
+        return postRepository.findByNo(no);
+    }
+
 }

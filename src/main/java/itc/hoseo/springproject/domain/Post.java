@@ -12,6 +12,7 @@ public class Post {
 	private String title;
 	private String text;
 	private Integer visible;
+	private Member publisher;
 	
 	public Post() {}
 

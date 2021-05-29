@@ -46,7 +46,7 @@ public class H2PostRepository implements PostRepository {
 
     @Override
     public List<Post> findAll() {
-        return template.query("select * from post",
+        return template.query("select * from post where visible = 1",
                 new BeanPropertyRowMapper<>(Post.class));
     }
 

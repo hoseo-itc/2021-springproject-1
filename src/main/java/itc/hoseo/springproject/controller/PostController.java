@@ -25,6 +25,13 @@ public class PostController {
         return "post/postList";
     }
 
+    @GetMapping("/post/detail")
+    public String postDetail(@RequestParam("no") int no, Model model){
+        Post post = postService.postDetail(no);
+        model.addAttribute("post",post);
+        return "post/postDetail";
+    }
+
     @PostMapping("/post/list")
     public String postListAction(){
         return "redirect:/";

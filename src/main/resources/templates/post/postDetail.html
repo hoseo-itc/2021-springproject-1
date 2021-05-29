@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://thymeleaf.org"
+      th:replace="~{fragments/layout :: rslt(~{::body},'글 상세')}">>
+<body>
+<div class>
+  <form action="/post/list" method="post">
+    <div>
+      <div>글 상세</div>
+        <div>no</div>
+        <div>publisher_no</div>
+        <div>upload_date</div>
+        <div>title</div>
+        <div>text</div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
