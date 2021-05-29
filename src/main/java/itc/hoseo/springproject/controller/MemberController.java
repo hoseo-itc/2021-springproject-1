@@ -20,7 +20,7 @@ public class MemberController {
 
     @RequestMapping(value = "/")
     public String rootPage(){
-        return "index";
+        return "main";
     }
     @RequestMapping(value = "/main")
     public String main(){
