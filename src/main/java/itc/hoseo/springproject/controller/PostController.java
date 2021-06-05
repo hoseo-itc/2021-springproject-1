@@ -22,6 +22,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -96,21 +98,33 @@ public class PostController {
                     })
                     .map(f -> {
                         final String uploadDir = env.getProperty("app.uploaddir.photo");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+                        String curtDate = sdf.format(new Date());
+
                         UploadFile uf = new UploadFile();
                         uf.setVisible(true);
                         uf.setOriginName(f.getOriginalFilename());
 
+                        if(Files.exists(Paths.get(uploadDir,curtDate)) == false){
+                            try {
+                                Files.createDirectory(Paths.get(uploadDir,curtDate));
+                            } catch (IOException e) {
+                                throw new RuntimeException("디렉토리 생성 실패",e);
+                            }
+                        }
+
                         //중복 파일이름 거르기
                         String encName = UUID.randomUUID().toString();
-                        while(Files.exists(Paths.get(uploadDir, encName))) {
+                        while(Files.exists(Paths.get(uploadDir, curtDate, encName))) {
                             encName = UUID.randomUUID().toString();
                         }
                         try {
-                            f.transferTo(Paths.get(uploadDir, encName));
+                            f.transferTo(Paths.get(uploadDir, curtDate, encName));
                         } catch (IOException e) {
                             throw new RuntimeException("파일 업로드중 오류 발생", e);
                         }
-                        uf.setEncodeName(encName);
+                        uf.setEncodeName(curtDate + "/" + encName);
                         return uf;
                     })
                     .collect(Collectors.toList());

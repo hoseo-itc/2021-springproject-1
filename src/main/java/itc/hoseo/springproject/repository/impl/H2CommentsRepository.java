@@ -46,7 +46,7 @@ public class H2CommentsRepository implements CommentsRepository {
     @Override
     public List<Comments> findByPostNo(int post_no) {
         return template.query("select * from comments where post_no = ?",
-                new BeanPropertyRowMapper<>(Comments.class));
+                new BeanPropertyRowMapper<>(Comments.class), post_no);
     }
 
     @Override

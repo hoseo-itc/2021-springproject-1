@@ -21,7 +21,6 @@ public class PostService {
     @Autowired
     private UploadFileRepository uploadFileRepository;
 
-
     @Autowired
     private MemberRepository memberRepository;
 
