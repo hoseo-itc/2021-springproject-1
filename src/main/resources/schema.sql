@@ -14,8 +14,8 @@ create table Member(
 create table Post(
 	no int AUTO_INCREMENT,
 	publisher_no number not null,
-	upload_date date not null default now(),
-	change_date date,
+	upload_date datetime not null default now(),
+	change_date datetime,
 	title varchar2(30) not null,
 	text text,
 	visible number not null default 1
@@ -23,14 +23,12 @@ create table Post(
 
 alter table Post add primary key(no);
 
-create table Files(
-	no number primary key,
-	publisher_no number not null,
+create table UploadFile(
+	no int AUTO_INCREMENT primary key,
 	post_no number not null,
 	origin_name varchar2(255) not null,
 	encode_name varchar2(255) not null,
-	
-	visible number not null
+	visible boolean not null
 );
 
 create table Likes(

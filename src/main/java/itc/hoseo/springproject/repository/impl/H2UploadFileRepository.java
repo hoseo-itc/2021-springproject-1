@@ -2,7 +2,9 @@ package itc.hoseo.springproject.repository.impl;
 
 import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.domain.Post;
+import itc.hoseo.springproject.domain.UploadFile;
 import itc.hoseo.springproject.repository.PostRepository;
+import itc.hoseo.springproject.repository.UploadFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,22 +20,23 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class H2PostRepository implements PostRepository {
+public class H2UploadFileRepository implements UploadFileRepository {
 
     @Autowired
     private JdbcTemplate template;
 
     @Override
-    public Post save(Member member,Post post) {
-        String sql = "insert into post(publisher_no,title,text) values(?,?,?)";
+    public UploadFile save(UploadFile file) {
+        String sql = "insert into UploadFile(post_no,origin_name,encode_name, visible) values(?,?,?,?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         template.update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, member.getNo());
-                ps.setString(2, post.getTitle());
-                ps.setString(3, post.getText());
+                ps.setInt(1, file.getPostNo());
+                ps.setString(2, file.getOriginName());
+                ps.setString(3, file.getEncodeName());
+                ps.setBoolean(4, file.getVisible());
 
                 return ps;
             }
@@ -45,29 +48,14 @@ public class H2PostRepository implements PostRepository {
     }
 
     @Override
-    public List<Post> findAll() {
-        return template.query("select * from post where visible = 1",
-                new BeanPropertyRowMapper<>(Post.class));
+    public List<UploadFile> findByPostNo(int postNo) {
+        return template.query("select * from UploadFile where post_no = ?",
+                new BeanPropertyRowMapper<UploadFile>(UploadFile.class), postNo);
     }
 
     @Override
-    public Post findByNo(int no) {
-        if(countByNo(no)==0){
-            return null;
-        }
-        return template.queryForObject("select * from post where no = ?",
-                new BeanPropertyRowMapper<Post>(Post.class), no);
-    }
-
-    @Override
-    public int countByNo(int no) {
-        return template.queryForObject("select count(*) from post where no = ?",
-                Integer.class, no);
-    }
-
-    @Override
-    public Post findByPno(Member member) {
-        return template.queryForObject("select * from post where publisher_no = ?",
-                new BeanPropertyRowMapper<Post>(Post.class), member.getNo());
+    public UploadFile findByNo(int no) {
+        return template.queryForObject("select * from UploadFile where no = ?",
+                new BeanPropertyRowMapper<UploadFile>(UploadFile.class), no);
     }
 }

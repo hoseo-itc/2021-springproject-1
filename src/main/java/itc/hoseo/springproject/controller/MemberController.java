@@ -18,14 +18,7 @@ public class MemberController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/")
-    public String rootPage(){
-        return "main";
-    }
-    @RequestMapping(value = "/main")
-    public String main(){
-        return "main";
-    }
+
 
 	
 }

@@ -2,6 +2,9 @@ package itc.hoseo.springproject.domain;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 public class Post {
 	
@@ -13,6 +16,9 @@ public class Post {
 	private String text;
 	private Integer visible;
 	private Member publisher;
+
+	private List<UploadFile> uploadPhotos = new ArrayList<>();
+
 	
 	public Post() {}
 
