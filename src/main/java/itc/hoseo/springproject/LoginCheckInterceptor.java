@@ -10,17 +10,16 @@ import javax.servlet.http.HttpSession;
 public class LoginCheckInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if(request.getRequestURI().equals("/login")) return true;
-        AntPathMatcher pathMatcher = new AntPathMatcher();
-        if(pathMatcher.match("/login/*",request.getRequestURI()))return true;
-        if(pathMatcher.match("/images/*",request.getRequestURI()))return true;
-        if(pathMatcher.match("/css/*",request.getRequestURI()))return true;
-        if(pathMatcher.match("/js/*",request.getRequestURI()))return true;
-
-        HttpSession session = request.getSession(true);
-
-        //if(session.getAttribute("user") == null)response.sendRedirect("/login");
-
         return true;
+//        if(request.getRequestURI().equals("/login")) return true;
+//        AntPathMatcher pathMatcher = new AntPathMatcher();
+//        if(pathMatcher.match("/login/*",request.getRequestURI()))return true;
+//        if(pathMatcher.match("/images/*",request.getRequestURI()))return true;
+//        if(pathMatcher.match("/css/*",request.getRequestURI()))return true;
+//        if(pathMatcher.match("/js/*",request.getRequestURI()))return true;
+//
+//        HttpSession session = request.getSession(true);
+//
+//        return true;
     }
 }

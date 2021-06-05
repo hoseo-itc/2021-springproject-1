@@ -66,52 +66,12 @@
   </div>
 
 
-  <!-- First Photo Grid-->
   <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/dummy/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+    <div th:each="post : ${mainPosts}" class="w3-third w3-container w3-margin-bottom">
+      <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/dummy/lights.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-      <img src="/images/dummy/nature.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/dummy/p1.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/dummy/p2.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-      <img src="/images/dummy/p3.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        <p><b th:text="${post.title}">제목</b></p>
+        <p th:text="${post.text}">설명</p>
       </div>
     </div>
   </div>

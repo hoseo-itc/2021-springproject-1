@@ -3,6 +3,13 @@
        xmlns:th="https://thymeleaf.org"
        th:replace="~{fragments/layout :: rslt(~{::body},'로그인')}">
 <body>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector("input[name=id]").value = "manager1";
+            document.querySelector("input[name=password]").value = "q1w2e3r4";
+            document.querySelector("form").submit();
+        });
+    </script>
     <div class>
         <form action="/login" method="post">
             <div>

@@ -5,6 +5,16 @@
 <body>
 <div class>
     <div>
+        <div>
+            <ul>
+                <li th:each="photo : ${post.uploadPhotos}">
+                    <img th:src="@{'/upload/' + ${photo.encodeName}}" th:alt="${photo.originName}" />
+                </li>
+
+            </ul>
+
+        </div>
+
       <div>글 상세</div>
         <div th:text="${post.no}">no</div>
         <div th:text="${post.publisher_no}">publisher_no</div>
