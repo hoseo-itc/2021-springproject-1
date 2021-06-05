@@ -1,7 +1,9 @@
 package itc.hoseo.springproject.controller;
 
+import itc.hoseo.springproject.domain.Comments;
 import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.domain.Post;
+import itc.hoseo.springproject.service.CommentsService;
 import itc.hoseo.springproject.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,9 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private CommentsService commentsService;
+
     @GetMapping("/post/list")
     public String post(Model model) {
         List<Post> postList = postService.postList();
@@ -32,6 +37,10 @@ public class PostController {
         int no = Integer.parseInt(s_no);
         Post post = postService.postDetail(no);
         model.addAttribute("post", post);
+
+        List<Comments> commentsList = commentsService.commentsList(no);
+        model.addAttribute("commentsList", commentsList);
+
         return "post/postDetail";
     }
 

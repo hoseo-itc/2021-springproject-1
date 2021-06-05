@@ -43,10 +43,10 @@ create table Likes(
 );
 
 create table Comments(
-	no number primary key,
+	no int primary key AUTO_INCREMENT,
 	post_no number not null,
-	target number not null,
-	content long,
+	target number,
+	content text,
 	
 	update_date date,
 	change_date date

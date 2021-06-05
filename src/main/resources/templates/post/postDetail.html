@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="https://thymeleaf.org"
-      th:replace="~{fragments/layout :: rslt(~{::body},'글 상세')}">>
+      th:replace="~{fragments/layout :: rslt(~{::body},'글 상세')}">
 <body>
 <div class>
     <div>
@@ -12,6 +12,38 @@
         <div th:text="${post.title}">title</div>
         <div th:text="${post.text}">text</div>
     </div>
+</div>
+<br>
+<br>
+
+<form action="/comments/upload" method="post">
+    <div>
+        <input name="postNo" type="hidden" th:value="${post.no}"/>
+        <div>댓글</div>
+        <div>내용 <p><textarea name="content" cols="50" rows="10"></textarea></p></div>
+    </div>
+    <div>
+        <input type="submit" value="제출">
+    </div>
+</form>
+<br>
+
+<div class>
+    <!--form action="/comments/list" method="post"-->
+    <div>
+        <div>댓글 리스트</div>
+        <div style="display:table">
+            <div style="display:table-row">
+                <div style="display:table-cell">댓글 </div>
+                <div style="display:table-cell">작성일</div>
+            </div>
+            <div style="display:table-row" th:each="comment : ${commentsList}">
+                <div style="display:table-cell" th:text="${comment.content}">22222</div>
+                <div style="display:table-cell" th:text="${comment.upload_date}">작성2222일</div>
+            </div>
+        </div>
+    </div>
+    <!--/form-->
 </div>
 
 </body>
