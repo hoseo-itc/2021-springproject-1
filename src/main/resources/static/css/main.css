@@ -1,0 +1,28 @@
+/* defaule */
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+/* font */
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* common */
+.main-slice-img{
+    width:100%;
+}
+.top-bar .menu{
+    display:inline-block;
+}
+.top-bar .menu-icon{
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background-image:url('/images/icon/hamburger.png');
+    background-size:100%;
+}
