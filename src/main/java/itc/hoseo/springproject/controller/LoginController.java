@@ -52,6 +52,7 @@ public class LoginController {
     @GetMapping("/login")
     public String loginForm(HttpServletRequest request){
         String referer = request.getHeader("Referer");
+        referer = (referer == null || referer.trim().isEmpty()) ? "/" : referer;
         request.getSession().setAttribute("prevPage", referer);
         return "login/loginForm";
     }
@@ -75,6 +76,7 @@ public class LoginController {
     @RequestMapping("/logout")
     public String loginAction(HttpServletRequest request){
         String referer = request.getHeader("Referer");
+        referer = (referer == null || referer.trim().isEmpty()) ? "/" : referer;
         loginService.logout(request);
         return "redirect:"+referer;
     }
