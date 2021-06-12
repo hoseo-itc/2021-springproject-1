@@ -3,13 +3,11 @@
       xmlns:th="https://thymeleaf.org"
       th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
-    <link rel="stylesheet" href="/css/detail.css">
+
 </head>
 <body>
-<div class>
-    <div>
-
-        <div >글 상세</div>
+<div class="container">
+    <form action="/post/list" method="post">
         <div class="post-img">
             <ul>
                 <li th:each="photo : ${post.uploadPhotos}">
@@ -17,45 +15,67 @@
                 </li>
             </ul>
         </div>
-        <div th:text="${post.no}">no</div>
-        <div th:text="${post.publisher_no}">publisher_no</div>
-        <div th:text="${post.upload_date}">upload_date</div>
-        <div th:text="${post.title}">title</div>
-        <div th:text="${post.text}">text</div>
-        </div>
+        <table class="table table-hover" border="1">
+            <thread>
+                <tr>
+                    <th>게시물 번호</th>
+                    <td th:text="${post.no}"></td>
+                </tr>
+                <tr>
+                    <th>작성자 번호</th>
+                    <td th:text="${post.publisher_no}"></td>
+                </tr>
+                <tr>
+                    <th>작성일</th>
+                    <td th:text="${post.upload_date}"></td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td th:text="${post.title}"></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td th:text="${post.text}"></td>
+                </tr>
+            </thread>
+        </table>
+    </form>
 </div>
 <br>
 <br>
 
-<form action="/comments/upload" method="post">
-    <div>
-        <input name="postNo" type="hidden" th:value="${post.no}"/>
-        <div>댓글</div>
-        <div>내용 <p><textarea name="content" cols="50" rows="10"></textarea></p></div>
-    </div>
-    <div>
-        <input type="submit" value="제출">
-    </div>
-</form>
+<div>
+    <form action="/comments/upload" method="post">
+        <div>
+            <input name="postNo" type="hidden" th:value="${post.no}"/>
+            <div>댓글</div>
+            <div>내용 <p><textarea name="content" cols="50" rows="10"></textarea></p></div>
+        </div>
+        <div>
+            <input type="submit" value="제출">
+        </div>
+    </form>
+</div>
 <br>
 
-<div class>
-    <!--form action="/comments/list" method="post"-->
-    <div>
-        <div>댓글 리스트</div>
-        <div style="display:table">
-            <div style="display:table-row">
-                <div style="display:table-cell">댓글 </div>
-                <div style="display:table-cell">작성일</div>
-            </div>
-            <div style="display:table-row" th:each="comment : ${commentsList}">
-                <div style="display:table-cell" th:text="${comment.content}">22222</div>
-                <div style="display:table-cell" th:text="${comment.update_date}">작성2222일</div>
-            </div>
-        </div>
-    </div>
-    <!--/form-->
+<div class="container">
+    <table class="table table-hover">
+        <thread>
+            <tr>
+                <th>댓글</th>
+                <th>작성일</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="comment : ${commentsList}">
+            <td th:text="${comment.content}"></td>
+            <td th:text="${comment.update_date}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>
 </html>
+
+

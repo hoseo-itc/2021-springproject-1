@@ -3,30 +3,33 @@
       xmlns:th="https://thymeleaf.org"
       th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
-
+    <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
-<div class>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<div class="container">
     <form action="/post/list" method="post">
-        <div>
-            <div>글 리스트</div>
-            <div style="display:table">
-                <div style="display:table-row">
-                    <div style="display:table-cell">작성자</div>
-                    <div style="display:table-cell">제목</div>
-                    <div style="display:table-cell">작성일</div>
-                </div>
-                <div style="display:table-row" th:each="post : ${postList}">
-                    <div style="display:table-cell" th:text="${post.publisher_no}">22222</div>
-                    <div style="display:table-cell" >
-                        <a th:href="|/post/detail?no=${post.no}|" th:text="${post.title}">제2222목</a>
-                    </div>
-                    <div style="display:table-cell" th:text="${post.upload_date}">작성2222일</div>
-                </div>
-            </div>
-        </div>
+        <table class="table table-hover">
+            <thread>
+                <tr>
+                    <th>작성자 번호</th>
+                    <th>제목</th>
+                    <th>작성일</th>
+                </tr>
+            </thread>
+            <tbody>
+            <tr th:each="post : ${postList}">
+                <td th:text="${post.publisher_no}"></td>
+                <td><a th:href="|/post/detail?no=${post.no}|" th:text="${post.title}"></a></td>
+                <td th:text="${post.upload_date}"></td>
+            </tr>
+            </tbody>
+        </table>
     </form>
 </div>
 
 </body>
 </html>
+
+
