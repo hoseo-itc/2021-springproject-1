@@ -50,14 +50,20 @@ public class LoginController {
     private LoginService loginService;
 
     @GetMapping("/login")
-    public String loginForm(){
+    public String loginForm(HttpServletRequest request){
+        String referer = request.getHeader("Referer");
+        request.getSession().setAttribute("prevPage", referer);
         return "login/loginForm";
     }
 
     @PostMapping("/login")
-    public String loginAction(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletRequest session){
+    public String loginAction(HttpServletRequest request,@RequestParam("id") String id, @RequestParam("password") String password, HttpServletRequest session){
+        if(id.trim().equals("")||password.trim().equals("")){
+            return "redirect:/login";
+        }
         loginService.login(id,password,session);
-        return "redirect:/";
+        String prevPage = (String)request.getSession().getAttribute("prevPage");
+        return "redirect:"+prevPage;
     }
     
     @GetMapping("/testprofile")
@@ -67,9 +73,10 @@ public class LoginController {
     
 
     @RequestMapping("/logout")
-    public String loginAction(HttpServletRequest session){
-        loginService.logout(session);
-        return "redirect:/";
+    public String loginAction(HttpServletRequest request){
+        String referer = request.getHeader("Referer");
+        loginService.logout(request);
+        return "redirect:"+referer;
     }
     
     @GetMapping("/auth")

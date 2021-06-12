@@ -24,6 +24,13 @@
             <div class="logo-main">80 Day's</div>
         </div>
 
+        <div class="menu" th:if="${session.user != null}">
+            <a href="/logout">로그아웃</a>
+        </div>
+        <div class="menu" th:if="${session.user == null}">
+            <a href="/login">로그인</a>
+        </div>
+
         <div class="line-type01">
         </div>
     </header>
