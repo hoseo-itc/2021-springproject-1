@@ -3,7 +3,7 @@
       xmlns:th="https://thymeleaf.org"
       th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
-
+    <link rel="stylesheet" href="/css/detail.css">
 </head>
 <body>
 <div class="container">
@@ -39,6 +39,10 @@
                 </tr>
             </thread>
         </table>
+        <label for="like_btn" class="btn-type01">좋아요</label>
+        <label for="dislike_btn" class="btn-type01">싫어요</label>
+        <input id="like_btn" class="undisplay" type="button" onclick="alert('좋아요');">
+        <input id="dislike_btn" class="undisplay" type="button" onclick="alert('싫어요');">
     </form>
 </div>
 <br>

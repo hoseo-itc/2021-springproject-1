@@ -19,6 +19,4 @@ public class Likes {
 		this.target = target;
 	}
 	
-	
-	
 }

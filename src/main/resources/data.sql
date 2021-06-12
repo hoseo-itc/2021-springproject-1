@@ -41,6 +41,7 @@ values ('testuser9','테스터9','q1w2e3r4',10);
 insert into Member(id,name,password,user_mode)
 values ('testuser0','테스터0','q1w2e3r4',10);
 
+
 -- 작성글
 insert into Post(publisher_no,title,text)
 values (1,'너굴맨','사진은 이 너굴맨이 처리했으니 안심하라고!');
@@ -83,5 +84,7 @@ values(5,'musk_1.jpg','musk_1.jpg',true);
 insert into UploadFile(post_no,origin_name,encode_name,visible)
 values(6,'musk_2.jpg','musk_2.jpg',true);
 
-
+--댓글
+insert into Comments(post_no,content)
+values(1,'다시 가고 싶은 나라 1위!!');
 

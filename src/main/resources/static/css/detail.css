@@ -1,3 +1,17 @@
-.post-img{
-    max-width:
+.undisplay{
+    display:none;
+}
+.btn-type01{
+    display:inline-block;
+    width:50px;
+    height:20px;
+}
+.btn-type01:hover{
+    display:inline-block;
+    width:50px;
+    height:20px;
+    background:#ff0000;
+}
+.btn-type01.checked{
+
 }

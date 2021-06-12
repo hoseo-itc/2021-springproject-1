@@ -10,13 +10,13 @@
     <form enctype="multipart/form-data" action="/post/upload" method="post">
         <div class="upload-form">
             <div>업로드</div>
-            <div>
-                <label for="files">파일 업로드</label>
-                <input type="file" id="files" name="files" accept="image/*">
-                <input type="file" id="files" name="files">
-            </div>
             <div>제목 <input name="title" type="text"></div>
             <div>내용 <p><textarea name="text" cols="50" rows="10"></textarea></p></div>
+            <div>
+                <label for="files">파일 업로드</label><br>
+                <input type="file" id="files" name="files" accept="image/*"><br>
+                <input type="file" id="files" name="files"><br>
+            </div>
         </div>
         <div>
             <input type="submit" value="제출">
