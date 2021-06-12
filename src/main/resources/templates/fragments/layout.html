@@ -14,6 +14,20 @@
     <th:block th:replace="${header}"></th:block>
 </head>
 <body>
+    <header class="top-bar">
+        <div class="side-menu-btn menu">
+            <span class="menu-icon menu" onclick="side_menu_open()"></span>
+        </div>
+        <!-- 로고 -->
+        <div onclick="location.href='/'" class="logo-type01 menu">
+            <div class="logo-sub">80일 그이상의 여행을 위해</div>
+            <div class="logo-main">80 Day's</div>
+        </div>
+
+        <div class="line-type01">
+        </div>
+    </header>
+
   <th:block th:replace="${content}"></th:block>
 </body>
 </html>

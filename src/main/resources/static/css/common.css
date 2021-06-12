@@ -3,14 +3,29 @@ body{
     background:#FFFFFF;
 }
 
-.80days-logo{
-
+.logo-type01{
+    cursor:pointer;
 }
-.80days-logo .logo-sub{
+.logo-type01 .logo-sub{
     font-weight:
 }
-.80days-logo .logo-main{
+.logo-type01 .logo-main{
     color:#FF0000;
     font-weight:800;
     font-size:200px;
+}
+
+.top-bar .menu{
+    display:inline-block;
+}
+.top-bar .menu-icon{
+    display:inline-block;
+    width:50px;
+    height:50px;
+    background-image:url('/images/icon/hamburger.png');
+    background-size:100%;
+}
+
+.main-slice-img{
+    width:100%;
 }

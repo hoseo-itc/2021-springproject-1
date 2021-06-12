@@ -32,21 +32,6 @@ header{
 }
 
 
-.top-bar .menu{
-    display:inline-block;
-}
-.top-bar .menu-icon{
-    display:inline-block;
-    width:50px;
-    height:50px;
-    background-image:url('/images/icon/hamburger.png');
-    background-size:100%;
-}
-
-
-.main-slice-img{
-    width:100%;
-}
 @media (max-width:992px){
     .w3-sidebar.w3-collapse{display:none}
     .w3-main{margin-left:0!important;margin-right:0!important}
