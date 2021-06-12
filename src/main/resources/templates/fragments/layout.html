@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="https://thymeleaf.org"
-      th:fragment="rslt(content,title)">
+      th:fragment="rslt(header,content,title)">
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}">Title</title>
@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="/css/swiper_css/swiper.min.css">
     <!-- common -->
     <link rel="stylesheet" href="/css/common.css">
-    <script th:src="@{'/js/' + ${type} + '.js'}"></script>
-    <link rel="stylesheet" th:href="|/css/${type}.css|">
-
+    <th:block th:replace="${header}"></th:block>
 </head>
 <body>
   <th:block th:replace="${content}"></th:block>

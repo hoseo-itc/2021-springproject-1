@@ -12,10 +12,26 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     font-weight: normal;
     font-style: normal;
 }
-/* common */
-.main-slice-img{
+
+/* special tag */
+.line-type01{
+    height:3px;
     width:100%;
+    background-color:#ffd6f6;
 }
+
+/* common */
+header{
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:9999;
+    width:100%;
+    background:#FFFFFF;
+    vertical-align:middle;
+}
+
+
 .top-bar .menu{
     display:inline-block;
 }
@@ -25,4 +41,30 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     height:50px;
     background-image:url('/images/icon/hamburger.png');
     background-size:100%;
+}
+
+
+.main-slice-img{
+    width:100%;
+}
+@media (max-width:992px){
+    .w3-sidebar.w3-collapse{display:none}
+    .w3-main{margin-left:0!important;margin-right:0!important}
+    .w3-auto{max-width:100%}
+}
+@media (max-width:992px){
+    .w3-sidebar.w3-collapse{display:none}
+    .w3-main{margin-left:0!important;margin-right:0!important}
+    .w3-auto{max-width:100%}
+}
+@media (min-width:993px){
+    .top-bar .side-menu-btn{display:none;}
+}
+
+.top-place-container{
+    margin:30px;
+}
+.bullet-box{
+    width:100%;
+    text-align:center;
 }
