@@ -5,21 +5,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
 .w3-badge {height:13px;width:13px;padding:0}
 
-/* font */
-@font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* special tag */
-.line-type01{
-    height:3px;
-    width:100%;
-    background-color:#ffd6f6;
-}
-
 /* common */
 header{
     position:sticky;
@@ -29,6 +14,10 @@ header{
     width:100%;
     background:#FFFFFF;
     vertical-align:middle;
+}
+
+.main-slice-img{
+    width:100%;
 }
 
 
