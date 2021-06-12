@@ -11,6 +11,12 @@ body{
     background:#FFFFFF;
 }
 
+/* tag css */
+a { color: #000; }
+a:link { color: #000; }
+a:visited { color: #000; }
+
+/* class css */
 .logo-type01{
     cursor:pointer;
 }

@@ -31,7 +31,11 @@
                 <input type="text" id="login" class="fadeIn second" name="id" placeholder="login">
                 <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In">
-                <input type="button" value="Sign In" onclick="location.href='/login/signup'">
+                <div>
+                    <a href="/login/signup">회원가입</a>
+                    /
+                    <a>비밀번호찾기</a>
+                </div>
             </form>
 
             <a href="https://kauth.kakao.com/oauth/authorize?client_id=25c3e04cd386ae486d59b8bdbf9a69aa&redirect_uri=http://localhost:8081/auth&response_type=code&scope=account_email,profile">
