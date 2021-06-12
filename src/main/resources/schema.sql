@@ -35,7 +35,7 @@ create table Likes(
 	Post_no number not null,
 	user_no number not null,
 	state number not null,
-	target number not null,
+	--target number not null,
 	
 	CONSTRAINT Likes_PK PRIMARY KEY(Post_no, user_no)
 );

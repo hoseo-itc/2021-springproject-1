@@ -25,13 +25,11 @@ public class H2LikesRepository implements LikesRepository {
     }
 
     @Override
-    public boolean findByNo(int post_no,int user_no) {
-        int count=template.queryForObject("select count(*) from likes where post_no=? and user_no=?",
+    public int getStateByUser(int post_no,int user_no) {
+        int state=template.queryForObject("select state from likes where post_no=? and user_no=?",
                 Integer.class,post_no,user_no);
-        if(count==0)
-            return false;
-        else
-            return true;
+
+        return state; // 0: 결과 없음 , 1:좋아요, 2:싫어요
     }
 
 

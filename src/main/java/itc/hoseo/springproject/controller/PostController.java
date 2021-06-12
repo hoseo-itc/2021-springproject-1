@@ -3,9 +3,11 @@ package itc.hoseo.springproject.controller;
 import itc.hoseo.springproject.domain.Comments;
 import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.domain.Post;
+import itc.hoseo.springproject.repository.LikesRepository;
 import itc.hoseo.springproject.service.CommentsService;
 import itc.hoseo.springproject.domain.UploadFile;
 import itc.hoseo.springproject.domain.dto.PostUploadDto;
+import itc.hoseo.springproject.service.LikesService;
 import itc.hoseo.springproject.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -38,6 +40,9 @@ public class PostController {
     private CommentsService commentsService;
 
     @Autowired
+    private LikesService likesService;
+
+    @Autowired
     private Environment env;
 
     @GetMapping("/post/list")
@@ -49,12 +54,18 @@ public class PostController {
 
     @GetMapping("/post/detail")
     public String postDetail(@RequestParam("no") String s_no, Model model) {
+        // 포스트 글 가져오기
         int no = Integer.parseInt(s_no);
         Post post = postService.postDetail(no);
         model.addAttribute("post", post);
 
+        // 댓글 가져오기
         List<Comments> commentsList = commentsService.commentsList(no);
         model.addAttribute("commentsList", commentsList);
+
+        // 좋아요/싫어요
+        int like_state = 0;
+        model.addAttribute("like_state", like_state);
 
         return "post/postDetail";
     }
