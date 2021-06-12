@@ -54,6 +54,12 @@ a:visited { color: #000; text-decoration:none;}
 .top-bar .menu{
     display:inline-block;
 }
+.top-bar .menu.right-m{
+    position:absolute;
+    right:0;
+    float:right;
+    display:inline-block;
+}
 .top-bar .menu-icon{
     display:inline-block;
     width:50px;
@@ -68,4 +74,7 @@ a:visited { color: #000; text-decoration:none;}
     height:3px;
     width:100%;
     background-color:#ffd6f6;
+}
+.undisplay{
+    display:none;
 }

@@ -8,3 +8,13 @@ function side_menu_open() {
         $('#myOverlay').css('display','block');
     }
 }
+
+// 전체 검색
+function total_search(){
+    var search_text = $('#total_search_var').val();
+    if($.trim(search_text)==''){
+        alert('입력된 검색어가 없습니다.');
+    }else{
+        alert('검색어 : '+search_text);
+    }
+}

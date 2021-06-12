@@ -52,12 +52,21 @@
             <div class="logo-main">80 Day's</div>
         </div>
 
-        <div class="menu" th:if="${session.user != null}">
-            <a href="/logout">로그아웃</a>
+
+        <div class="menu right-m">
+            <div class="menu ">
+                <input type="text" id='total_search_var' />
+                <label for="total_search_btn">검색</label>
+                <input id="total_search_btn" type="button" class="undisplay" onclick="total_search();">
+            </div>
+            <div class="menu" th:if="${session.user != null}">
+                <a href="/logout">로그아웃</a>
+            </div>
+            <div class="menu" th:if="${session.user == null}">
+                <a href="/login">로그인</a>
+            </div>
         </div>
-        <div class="menu" th:if="${session.user == null}">
-            <a href="/login">로그인</a>
-        </div>
+
 
         <div class="line-type01">
         </div>
