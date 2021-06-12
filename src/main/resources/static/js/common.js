@@ -1,9 +1,10 @@
 // 사이드바 열고 닫기
 function side_menu_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-function side_menu_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
+    if($('#mySidebar').css('display')=="block"){
+        $('#mySidebar').css('display','none');
+        $('#myOverlay').css('display','none');
+    }else{
+        $('#mySidebar').css('display','block');
+        $('#myOverlay').css('display','block');
+    }
 }

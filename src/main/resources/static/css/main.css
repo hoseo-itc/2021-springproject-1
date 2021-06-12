@@ -6,15 +6,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 .w3-badge {height:13px;width:13px;padding:0}
 
 /* common */
-header{
-    position:sticky;
-    top:0;
-    left:0;
-    z-index:9999;
-    width:100%;
-    background:#FFFFFF;
-    vertical-align:middle;
-}
 
 .main-slice-img{
     width:100%;

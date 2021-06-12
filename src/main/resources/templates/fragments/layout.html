@@ -18,21 +18,19 @@
     <link rel="stylesheet" href="/css/common.css">
     <th:block th:replace="${header}"></th:block>
 </head>
+<!--<body class="w3-light-grey w3-content" style="max-width:1600px">-->
 <body>
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
         <div class="w3-container">
-            <a href="#" onclick="side_menu_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-                <i class="fa fa-remove"></i>
-            </a>
             <img src="/images/dummy/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
             <h4><b>PORTFOLIO</b></h4>
             <p class="w3-text-grey">Template by W3.CSS</p>
         </div>
         <div class="w3-bar-block">
-            <a href="/post/list" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST LIST</a>
-            <a href="/post/upload" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST UPLOAD</a>
-            <a href="/login" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>LOGIN</a>
+            <a href="/post/list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST LIST</a>
+            <a href="/post/upload" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST UPLOAD</a>
+            <a href="/login" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>LOGIN</a>
         </div>
         <div class="w3-panel w3-large">
             <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -64,7 +62,11 @@
         <div class="line-type01">
         </div>
     </header>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="side_menu_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-  <th:block th:replace="${content}"></th:block>
+    <div class="w3-main" style="margin-left:300px">
+        <th:block th:replace="${content}"/>
+    </div>
 </body>
 </html>

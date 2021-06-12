@@ -40,9 +40,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import itc.hoseo.springproject.service.LoginService;
 
-
-
-
 @Controller
 public class LoginController {
 
