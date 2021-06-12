@@ -5,9 +5,9 @@
 <head>
   <script src="/js/main.js"></script>
   <link rel="stylesheet" href="/css/main.css">
-  <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 <!-- Sidebar/menu -->
@@ -23,9 +23,6 @@
   <div class="w3-bar-block">
     <a href="/post/list" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST LIST</a>
     <a href="/post/upload" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>POST UPLOAD</a>
-    <a href="#portfolio" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>
-    <a href="#about" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
-    <a href="#contact" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
     <a href="/login" onclick="side_menu_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>LOGIN</a>
   </div>
   <div class="w3-panel w3-large">
@@ -81,11 +78,13 @@
     <div class="popular-post">
       <div class="swiper-wrapper w3-row-padding">
         <div th:each="post : ${mainPosts}" class="swiper-slide w3-third w3-container w3-margin-bottom">
-          <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b th:text="${post.title}">제목</b></p>
-            <p th:text="${post.text}">설명</p>
-          </div>
+          <a th:href="|/post/detail?no=${post.no}|">
+            <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b th:text="${post.title}">제목</b></p>
+              <p th:text="${post.text}">설명</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -97,16 +96,17 @@
     <div class="best-photo-post">
       <div class="swiper-wrapper w3-row-padding">
         <div th:each="post : ${mainPosts}" class="swiper-slide w3-third w3-container w3-margin-bottom">
-          <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b th:text="${post.title}">제목</b></p>
-            <p th:text="${post.text}">설명</p>
-          </div>
+          <a th:href="|/post/detail?no=${post.no}|">
+            <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b th:text="${post.title}">제목</b></p>
+              <p th:text="${post.text}">설명</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
-
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
@@ -143,7 +143,6 @@
           <span class="w3-tag w3-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Games</span>
         </p>
       </div>
-
     </div>
   </footer>
 

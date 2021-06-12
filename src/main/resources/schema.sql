@@ -46,7 +46,7 @@ create table Comments(
 	target number,
 	content text,
 	
-	update_date date,
+	update_date date default now(),
 	change_date date
 );
 

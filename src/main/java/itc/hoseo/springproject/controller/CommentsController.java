@@ -43,7 +43,7 @@ public class CommentsController {
         int pn=Integer.parseInt(String.valueOf(postNo));
         comments.setPost_no(pn);
         commentsService.commentsUpload(comments);
-        return "redirect:/";
+        return "redirect:/post/detail?no="+postNo;
     }
 
 }

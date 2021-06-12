@@ -3,28 +3,26 @@
       xmlns:th="https://thymeleaf.org"
       th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
-
+    <link rel="stylesheet" href="/css/detail.css">
 </head>
 <body>
 <div class>
     <div>
-        <div>
+
+        <div >글 상세</div>
+        <div class="post-img">
             <ul>
                 <li th:each="photo : ${post.uploadPhotos}">
                     <img th:src="@{'/upload/' + ${photo.encodeName}}" th:alt="${photo.originName}" />
                 </li>
-
             </ul>
-
         </div>
-
-      <div>글 상세</div>
         <div th:text="${post.no}">no</div>
         <div th:text="${post.publisher_no}">publisher_no</div>
         <div th:text="${post.upload_date}">upload_date</div>
         <div th:text="${post.title}">title</div>
         <div th:text="${post.text}">text</div>
-    </div>
+        </div>
 </div>
 <br>
 <br>
@@ -52,7 +50,7 @@
             </div>
             <div style="display:table-row" th:each="comment : ${commentsList}">
                 <div style="display:table-cell" th:text="${comment.content}">22222</div>
-                <div style="display:table-cell" th:text="${comment.upload_date}">작성2222일</div>
+                <div style="display:table-cell" th:text="${comment.update_date}">작성2222일</div>
             </div>
         </div>
     </div>

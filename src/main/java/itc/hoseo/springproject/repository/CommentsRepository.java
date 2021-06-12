@@ -10,4 +10,5 @@ public interface CommentsRepository {
     public List<Comments> findByPostNo(int post_no);
     public Comments findByNo(int no);
     public int countByNo(int no);
+    public int countByPostNo(int no);
 }

@@ -45,6 +45,9 @@ public class H2CommentsRepository implements CommentsRepository {
 
     @Override
     public List<Comments> findByPostNo(int post_no) {
+        if(countByPostNo(post_no)==0){
+            return null;
+        }
         return template.query("select * from comments where post_no = ?",
                 new BeanPropertyRowMapper<>(Comments.class), post_no);
     }
@@ -61,6 +64,11 @@ public class H2CommentsRepository implements CommentsRepository {
     @Override
     public int countByNo(int no) {
         return template.queryForObject("select count(*) from comments where no = ?",
+                Integer.class, no);
+    }
+    @Override
+    public int countByPostNo(int no) {
+        return template.queryForObject("select count(*) from comments where post_no = ?",
                 Integer.class, no);
     }
 
