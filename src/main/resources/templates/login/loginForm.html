@@ -3,31 +3,45 @@
        xmlns:th="https://thymeleaf.org"
        th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
-
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <script type="text/javascript">
+    <!--script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector("input[name=id]").value = "manager1";
             document.querySelector("input[name=password]").value = "q1w2e3r4";
             document.querySelector("form").submit();
         });
-    </script>
-    <div class>
-        <form action="/login" method="post">
-            <div>
-                <div>로그인</div>
-                <div>즐거운 여행을 떠나기 위한 준비</div>
-                <div>아이디 : <input name="id" type="text"></div>
-                <div>페스워드 : <input name="password" type="password"></div>
+    </script-->
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="/images/dummy/workshop.jpg" id="icon" alt="User Icon" />
             </div>
-            <div>
-                <input type="submit">
-                <input type="button" value="회원가입" onclick="location.href='/login/signup'">
+
+            <!-- Login Form -->
+            <form action="/login" method="post">
+                <input type="text" id="login" class="fadeIn second" name="id" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+                <input type="button" value="Sign In" onclick="location.href='/login/signup'">
+            </form>
+
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=25c3e04cd386ae486d59b8bdbf9a69aa&redirect_uri=http://localhost:8081/auth&response_type=code&scope=account_email,profile">
+                <img src="/images/kakao_login_medium_narrow.png"></a>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
             </div>
-        </form>
-        <a href="https://kauth.kakao.com/oauth/authorize?client_id=25c3e04cd386ae486d59b8bdbf9a69aa&redirect_uri=http://localhost:8081/auth&response_type=code&scope=account_email,profile">
-            <img src="/images/kakao_login_medium_narrow.png"></a>
+        </div>
     </div>
 </body>
 </html>
