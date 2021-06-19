@@ -70,7 +70,7 @@ public class H2PostRepository implements PostRepository {
         if(countByNo(no)==0){
             return null;
         }
-        template.update("update post set views=(select views from post where no = ?) where no = ?",new Object[] {no,no});
+        template.update("update post set views=(select views from post where no = ?)+1 where no = ?",new Object[] {no,no});
 
         return template.queryForObject("select * from post where no = ?",
                 new BeanPropertyRowMapper<Post>(Post.class), no);
