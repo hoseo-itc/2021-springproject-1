@@ -18,6 +18,7 @@ public class Post {
 	private Member publisher;
 	private List<Comments> Comments;
 	private List<UploadFile> uploadPhotos = new ArrayList<>();
+	private Integer views;
 
 	public Post() {}
 

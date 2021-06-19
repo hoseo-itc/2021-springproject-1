@@ -36,7 +36,8 @@ public class PostService {
 
 
     public Post postDetail(int no) {
-        Post post = postRepository.findByNo(no);
+        Post post = postRepository.upview(no);
+//        Post post = postRepository.findByNo(no);
         post.setUploadPhotos(uploadFileRepository.findByPostNo(no));
         return post;
     }

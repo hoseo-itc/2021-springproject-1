@@ -18,7 +18,8 @@ create table Post(
 	change_date datetime,
 	title varchar2(30) not null,
 	text text,
-	visible number not null default 1
+	visible number not null default 1,
+	views int default 0
 );
 
 alter table Post add primary key(no);
