@@ -13,9 +13,9 @@ public class LikesService {
     private LikesRepository likesRepository;
 
     public int getState(int post_no, int user_no){
-
-        return 0;
+        return likesRepository.getStateByUser(post_no,user_no);
     }
+
     public List<Integer> getLikeCount(int post_no){
         List<Integer> intL = null;
 
@@ -23,7 +23,4 @@ public class LikesService {
         return intL;
     }
 
-    public int likes(int post_no,int user_no){
-        return 0;
-    }
 }

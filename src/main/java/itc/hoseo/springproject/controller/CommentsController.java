@@ -27,13 +27,6 @@ public class CommentsController {
         return "post/postDetail";
     }
 
-//    @PostMapping("/comments/list")
-//    public String comments(@RequestParam("postNo") String postNo,Model model) {
-//        int pn=Integer.parseInt(String.valueOf(postNo));
-//        List<Comments> commentsList = commentsService.commentsList(pn);
-//        model.addAttribute("commentsList", commentsList);
-//        return "redirect:/";
-//    }
 
     @PostMapping("/comments/upload")
     public String commentUpload(@RequestParam("postNo") String postNo,Comments comments, HttpSession session){
