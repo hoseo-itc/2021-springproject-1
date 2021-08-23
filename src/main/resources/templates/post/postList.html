@@ -22,7 +22,7 @@
             <tr th:each="post : ${postList}">
                 <td th:text="${post.publisher_no}"></td>
                 <td><a th:href="|/post/detail?no=${post.no}|" th:text="${post.title}"></a></td>
-                <td th:text="${post.upload_date}"></td>
+                <td th:text="${#dates.format(post.upload_date,'yyyy-MM-dd HH:mm')}"></td>
             </tr>
             </tbody>
         </table>

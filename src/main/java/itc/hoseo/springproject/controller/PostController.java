@@ -4,11 +4,13 @@ import itc.hoseo.springproject.domain.Comments;
 import itc.hoseo.springproject.domain.Member;
 import itc.hoseo.springproject.domain.Post;
 import itc.hoseo.springproject.repository.LikesRepository;
+import itc.hoseo.springproject.repository.SubscriptRepository;
 import itc.hoseo.springproject.service.CommentsService;
 import itc.hoseo.springproject.domain.UploadFile;
 import itc.hoseo.springproject.domain.dto.PostUploadDto;
 import itc.hoseo.springproject.service.LikesService;
 import itc.hoseo.springproject.service.PostService;
+import itc.hoseo.springproject.service.SubscriptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -43,6 +45,9 @@ public class PostController {
     private LikesService likesService;
 
     @Autowired
+    private SubscriptService subscriptService;
+
+    @Autowired
     private Environment env;
 
     @GetMapping("/post/list")
@@ -53,7 +58,7 @@ public class PostController {
     }
 
     @GetMapping("/post/detail")
-    public String postDetail(@RequestParam("no") String s_no, Model model) {
+    public String postDetail(@RequestParam("no") String s_no, Model model, HttpSession session) {
         // 포스트 글 가져오기
         int no = Integer.parseInt(s_no);
         Post post = postService.postDetail(no);
@@ -66,6 +71,14 @@ public class PostController {
         // 좋아요/싫어요
         int like_state = 0;
         model.addAttribute("like_state", like_state);
+
+        // 구독 여부
+        if(session.getAttribute("user")!=null){
+            model.addAttribute("subscriptFlag"
+                    , subscriptService.checkSubscript(post.getPublisher_no(),((Member)session.getAttribute("user")).getNo()));
+        }else{
+            model.addAttribute("subscriptFlag",false);
+        }
 
         return "post/postDetail";
     }
@@ -93,7 +106,6 @@ public class PostController {
 
         return "redirect:/post/detail?no=" + post.getNo() ;
     }
-
 
     private Post convert(PostUploadDto dto, Member member){
         Post post = new Post();

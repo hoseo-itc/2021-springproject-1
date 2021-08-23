@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://thymeleaf.org"
+      th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
+<head>
+
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            마이 프로필
+        </div>
+        <div class="table">
+            <div class="table-row">
+                <div class="table-cell">id</div>
+                <div class="table-cell" th:text="${userProfile.id}"></div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">이름</div>
+                <div class="table-cell" th:text="${userProfile.name}"></div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">권한</div>
+                <div class="table-cell" th:text="${userProfile.user_mode}"></div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">가입 날짜</div>
+                <div class="table-cell" th:text="${#dates.format(userProfile.join_date,'yyyy-MM-dd')}"></div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">마지막 페스워드 변경일</div>
+                <div class="table-cell" th:text="${userProfile.last_password_date}"></div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            구독 목록
+        </div>
+        <div class="table">
+            <div th:if="${not subscriptFlag}">
+                구독자 없음
+            </div>
+            <div th:if="${subscriptFlag}" class="table">
+                <div class="table-row" th:each="subscription : ${userProfile.subscriptions}">
+                    <div class="table-cell">id : </div>
+                    <div class="table-cell" th:text="${subscription.hostMember.id}"></div>
+                    <div class="table-cell"> 구독 날짜 : </div>
+                    <div class="table-cell" th:text="${subscription.subscription_date}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

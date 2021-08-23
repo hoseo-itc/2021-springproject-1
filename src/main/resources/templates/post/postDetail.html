@@ -4,6 +4,7 @@
       th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
 <head>
     <link rel="stylesheet" href="/css/detail.css">
+    <script src="/js/detail.js"></script>
 </head>
 <body>
 <div class="container">
@@ -27,7 +28,7 @@
                 </tr>
                 <tr>
                     <th>작성일</th>
-                    <td th:text="${post.upload_date}"></td>
+                    <td th:text="${#dates.format(post.upload_date,'yyyy-MM-dd HH:mm')}"></td>
                 </tr>
                 <tr>
                     <th>제목</th>
@@ -35,7 +36,7 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td th:text="${post.text}"></td>
+                    <td th:utext="${#strings.replace(post.text, '\n', '<br />')}"></td>
                 </tr>
             </thread>
         </table>
@@ -47,6 +48,18 @@
 </div>
 <br>
 <br>
+
+<th:block th:if="${session.user == null || (session.user.no != post.publisher_no)}">
+<div th:if="${not subscriptFlag}">
+    <label for="subscript" class="btn-type02">구독</label>
+    <input id="subscript" class="undisplay" type="button" th:if="${session.user != null}" th:onclick="|subscript(${post.publisher_no});|">
+    <input id="subscript" class="undisplay" type="button" th:if="${session.user == null}" onclick="subscript();">
+</div>
+<div th:if="${subscriptFlag}">
+    <label for="delSubscript" class="btn-type02 checked">구독중</label>
+    <input id="delSubscript" class="undisplay" type="button" th:if="${session.user != null}" th:onclick="|delSubscript(${post.publisher_no});|">
+</div>
+</th:block>
 
 <div>
     <form action="/comments/upload" method="post">

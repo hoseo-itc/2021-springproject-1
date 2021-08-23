@@ -1,6 +1,8 @@
 package itc.hoseo.springproject.repository.impl;
 
 import itc.hoseo.springproject.domain.Member;
+import itc.hoseo.springproject.domain.Post;
+import itc.hoseo.springproject.domain.Subscription;
 import itc.hoseo.springproject.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

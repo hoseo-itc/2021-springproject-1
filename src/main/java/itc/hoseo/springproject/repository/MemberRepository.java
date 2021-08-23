@@ -1,6 +1,7 @@
 package itc.hoseo.springproject.repository;
 
 import itc.hoseo.springproject.domain.Member;
+import itc.hoseo.springproject.domain.Subscription;
 
 import java.util.List;
 

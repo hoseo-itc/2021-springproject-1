@@ -46,7 +46,7 @@ public class H2PostRepository implements PostRepository {
 
     @Override
     public List<Post> findAll() {
-        return template.query("select * from post where visible = 1",
+        return template.query("select * from post where visible = true order by upload_date desc",
                 new BeanPropertyRowMapper<>(Post.class));
     }
 
@@ -55,7 +55,7 @@ public class H2PostRepository implements PostRepository {
         if(countByNo(no)==0){
             return null;
         }
-        return template.queryForObject("select * from post where no = ?",
+        return template.queryForObject("select * from post where no = ? and visible = true",
                 new BeanPropertyRowMapper<Post>(Post.class), no);
     }
 

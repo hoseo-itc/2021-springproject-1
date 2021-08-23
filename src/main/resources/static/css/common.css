@@ -26,6 +26,11 @@ a { color: #000; text-decoration:none;}
 a:link { color: #000; text-decoration:none;}
 a:visited { color: #000; text-decoration:none;}
 
+table {
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+
 /* class css */
 @media (max-width:992px){
     .w3-sidebar.w3-collapse{display:none}
@@ -39,16 +44,6 @@ a:visited { color: #000; text-decoration:none;}
 }
 @media (min-width:993px){
     .top-bar .side-menu-btn{display:none!important;}
-}
-
-.logo-type01{
-    cursor:pointer;
-}
-.logo-type01 .logo-sub{
-    font-weight:
-}
-.logo-type01 .logo-main{
-    color:pink;
 }
 
 .top-bar .menu{
@@ -68,6 +63,15 @@ a:visited { color: #000; text-decoration:none;}
     background-size:100%;
 }
 
+.table{
+    display:table;
+}
+.table-row{
+    display:table-row;
+}
+.table-cell{
+    display:table-cell;
+}
 
 /* special tag */
 .line-type01{
@@ -77,4 +81,46 @@ a:visited { color: #000; text-decoration:none;}
 }
 .undisplay{
     display:none;
+}
+
+.logo-type01{
+    cursor:pointer;
+}
+.logo-type01 .logo-sub{
+    font-weight:
+}
+.logo-type01 .logo-main{
+    color:pink;
+}
+
+.btn-type01{
+    display:inline-block;
+    padding:5px 7px;
+    background:#dd0000;
+    color:#ffffff;
+    font-size:600;
+    /*width:50px;
+    line-height:20px;*/
+}
+.btn-type01:hover{
+    background:#ff0000;
+}
+.btn-type01.checked{
+    background:#888888;
+}
+
+.btn-type02{
+    display:inline-block;
+    padding:5px 7px;
+    background:#dd0000;
+    color:#ffffff;
+    font-size:600;
+    /*width:50px;
+    line-height:20px;*/
+}
+.btn-type02:hover{
+    background:#ff0000;
+}
+.btn-type02.checked{
+    background:#888888;
 }

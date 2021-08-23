@@ -5,15 +5,16 @@ import lombok.Data;
 @Data
 public class Subscription {
 
-	private Integer publisher_no;
-	private Integer user_no;
+	private Integer hostNo;
+	private Integer subscriberNO;
 	private String subscription_date;
-	
+
+	private Member hostMember;
+
 	public Subscription() {}
-	
 	public Subscription(Integer publisher_no, Integer user_no, String subscription_date) {
-		this.publisher_no = publisher_no;
-		this.user_no = user_no;
+		this.hostNo = publisher_no;
+		this.subscriberNO = user_no;
 		this.subscription_date = subscription_date;
 	}
 	

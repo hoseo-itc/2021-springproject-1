@@ -44,10 +44,10 @@ public class PostService {
 
     public Post postUpload(Post post) {
         Post savedPost = postRepository.save(post.getPublisher(), post);
-        for(UploadFile uf : post.getUploadPhotos()){
-            uf.setPostNo(savedPost.getNo());
-            uploadFileRepository.save(uf);
-        }
+//        for(UploadFile uf : post.getUploadPhotos()){
+//            uf.setPostNo(savedPost.getNo());
+//            uploadFileRepository.save(uf);
+//        }
 
         post.getUploadPhotos().stream()
                 .forEach(uf -> {
