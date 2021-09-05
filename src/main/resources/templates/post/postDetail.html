@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="https://thymeleaf.org"
-      th:replace="~{fragments/layout :: rslt(~{::head},~{::body},'80day`s')}">
+      th:replace="~{fragments/layout :: rslt(~{::head},~{::body})}">
 <head>
+    <title th:text="${post.title}"></title>
     <link rel="stylesheet" href="/css/detail.css">
     <script src="/js/detail.js"></script>
 </head>

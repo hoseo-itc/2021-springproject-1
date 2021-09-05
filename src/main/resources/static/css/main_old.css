@@ -1,0 +1,35 @@
+/* defaule */
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+/* common */
+
+.main-slice-img{
+    width:100%;
+}
+
+
+@media (max-width:992px){
+    .w3-sidebar.w3-collapse{display:none}
+    .w3-main{margin-left:0!important;margin-right:0!important}
+    .w3-auto{max-width:100%}
+}
+@media (max-width:992px){
+    .w3-sidebar.w3-collapse{display:none}
+    .w3-main{margin-left:0!important;margin-right:0!important}
+    .w3-auto{max-width:100%}
+}
+@media (min-width:993px){
+    .top-bar .side-menu-btn{display:none;}
+}
+
+.top-place-container{
+    margin:30px;
+}
+.bullet-box{
+    width:100%;
+    text-align:center;
+}

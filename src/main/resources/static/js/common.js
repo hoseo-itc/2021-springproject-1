@@ -1,20 +1,20 @@
-// 사이드바 열고 닫기
-function side_menu_open() {
-    if($('#mySidebar').css('display')=="block"){
-        $('#mySidebar').css('display','none');
-        $('#myOverlay').css('display','none');
-    }else{
-        $('#mySidebar').css('display','block');
-        $('#myOverlay').css('display','block');
-    }
+function open_left_menu(){
+	if($('.left-menu-wrap').hasClass('open')){
+		$('.left-menu-wrap').removeClass('open')
+	}else{
+		$('.left-menu-wrap').addClass('open')
+	}
 }
 
-// 전체 검색
-function total_search(){
-    var search_text = $('#total_search_var').val();
-    if($.trim(search_text)==''){
-        alert('입력된 검색어가 없습니다.');
-    }else{
-        alert('검색어 : '+search_text);
-    }
+function main_searching_text(val=''){
+	val=$.trim(val)
+	alert('검색어 : '+val);
 }
+
+$(function(){
+	$('#main_search').on({
+		'keyup':function(key){
+			if(key.keyCode==13) main_searching_text($(this).val())
+		}
+	})
+})

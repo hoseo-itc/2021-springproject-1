@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html  lang="ko"
+       xmlns:th="https://thymeleaf.org"
+       th:replace="~{fragments/layout :: rslt(~{::head},~{::body})}">
+<head>
+  <script src="/js/main.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<!-- !PAGE CONTENT! -->
+<!--<div class="w3-main" style="margin-left:300px">-->
+  <!-- 인기 Top5 여행지 스와이퍼 -->
+  <div style="width:900px;">
+    <div class="top-place-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/images/service_img/japan_20210605.jpg" class="main-slice-img" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/service_img/france_20210605.jpg" class="main-slice-img" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/service_img/boracay_20210605.jpg" class="main-slice-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bullet-box"></div>
+  <!-- 인기 Top6 포스트 스와이퍼 -->
+  <div>
+    <div>인기글</div>
+    <div class="popular-post">
+      <div class="swiper-wrapper w3-row-padding">
+        <div th:each="post : ${mainPosts}" class="swiper-slide w3-third w3-container w3-margin-bottom">
+          <a th:href="|/post/detail?no=${post.no}|">
+            <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b th:text="${post.title}">제목</b></p>
+              <p th:text="${post.text}">설명</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 최고의 풍경 포스트 스와이퍼 -->
+  <div>
+    <div>BEST PHOTO</div>
+    <div class="best-photo-post">
+      <div class="swiper-wrapper w3-row-padding">
+        <div th:each="post : ${mainPosts}" class="swiper-slide w3-third w3-container w3-margin-bottom">
+          <a th:href="|/post/detail?no=${post.no}|">
+            <img th:src="@{'/upload/' + ${post.uploadPhotos[0].encodeName}}" style="width:100%; height:240px;" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b th:text="${post.title}">제목</b></p>
+              <p th:text="${post.text}">설명</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+
+  </footer>
+
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+
+  <!-- End page content -->
+<!--</div>-->
+</body>
+</html>

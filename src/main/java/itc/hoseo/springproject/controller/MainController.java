@@ -20,6 +20,10 @@ public class MainController {
 
     @RequestMapping(value = "/")
     public String rootPage(ModelMap mm) {
+        List<Post> bestPost = null;
+        List<Post> popularPhoto = null;
+        List<Post> popularTraveler = null;
+
         List<Post> mainPosts = postService.postList().stream()
                 .filter(p -> {
                     return p.getUploadPhotos().size() > 0;
@@ -27,10 +31,16 @@ public class MainController {
                 .sorted(Comparator.comparing(Post::getUpload_date).reversed())
                 .collect(Collectors.toList());
 
-        if(mainPosts.size() > 6){
-            mainPosts = mainPosts.subList(0, 6);
+        if(mainPosts.size() > 4) {
+            bestPost = mainPosts.subList(0, 4);
         }
-        mm.put("mainPosts", mainPosts);
+        if(mainPosts.size() > 20) {
+            popularPhoto = mainPosts.subList(0, 20);
+        }else {
+            popularPhoto = mainPosts;
+        }
+        mm.put("bestPosts", bestPost);
+        mm.put("popularPhotos", popularPhoto);
 
         return "main";
     }

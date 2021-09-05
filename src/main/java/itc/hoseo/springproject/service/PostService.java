@@ -33,8 +33,6 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-
-
     public Post postDetail(int no) {
         Post post = postRepository.upview(no);
 //        Post post = postRepository.findByNo(no);
