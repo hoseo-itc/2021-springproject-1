@@ -14,7 +14,7 @@
 	min-width:500px;
 	background-image:
 		linear-gradient(rgba(0,0,0,0.5), rgba(255,255,255,0), rgba(0,0,0,0.3)),
-		url(/src/Thailand_02.jpg);
+		url(/images/src/Thailand_02.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center center;

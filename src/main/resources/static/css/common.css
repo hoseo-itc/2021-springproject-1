@@ -33,7 +33,7 @@ body{
 	display:inline-block;
 	width:34px;
 	height:34px;
-	background-image:url(/icon/hamburger-white-icon.png);
+	background-image:url(/images/icon/hamburger-white-icon.png);
 	background-size:32px;
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -43,7 +43,7 @@ body{
 	display:inline-block;
 	width:34px;
 	height:34px;
-	background-image:url(/icon/hamburger-gray-icon.png);
+	background-image:url(/images/icon/hamburger-gray-icon.png);
 	background-size:32px;
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -54,7 +54,7 @@ body{
 	display:inline-block;
 	width:30px;
 	height:30px;
-	background-image:url(/icon/search-white-icon.png);
+	background-image:url(/images/icon/search-white-icon.png);
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:center center;
